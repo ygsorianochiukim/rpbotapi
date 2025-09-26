@@ -14,9 +14,12 @@ class MailController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'message' => $request->message,
+            'care' => $request->care,
+            'discipline' => $request->discipline,
+            'mastery' => $request->mastery,
         ];
 
-        Mail::to('receiver@example.com')->send(new ContactMail($details));
+        Mail::to($request->email)->send(new ContactMail($details));
 
         return response()->json(['message' => 'Email sent successfully!']);
     }
