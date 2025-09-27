@@ -14,16 +14,6 @@ class MarriageController extends Controller
     }
 
     public function storeMarriageInfo(Request $request){
-        $MarriageField = $request -> validate([
-            'applicant_i_information_id' => 'integer|required',
-            'partnerReligion' => 'string|required',
-            'dateMarried' => 'date|required',
-            'child' => 'string|required',
-            'numberofchildren' => 'integer|required',
-            'ageofchildren' => 'integer|required',
-            'guardianofchildren' => 'string|required',
-        ]);
-
         $MarriageField['is_active'] = '1';
 
         $MarriageData = MarriageModel::create($MarriageField);

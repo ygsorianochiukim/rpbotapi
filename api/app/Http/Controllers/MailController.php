@@ -17,6 +17,10 @@ class MailController extends Controller
             'care' => $request->care,
             'discipline' => $request->discipline,
             'mastery' => $request->mastery,
+            'wpm' => $request->wpm,
+            'accuracy' => $request->accuracy,
+            'score' => $request->score,
+            'applicant' => $request->applicant,
         ];
 
         Mail::to($request->email)->send(new ContactMail($details));

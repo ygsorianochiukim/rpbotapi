@@ -4,8 +4,10 @@ use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\ApplicantEducationController;
 use App\Http\Controllers\ApplicationStatusController;
 use App\Http\Controllers\EligibilityController;
+use App\Http\Controllers\IQTestController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MarriageController;
+use App\Http\Controllers\TypingTestController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,5 +29,11 @@ Route::post('/applicantMarriage',[MarriageController::class,'storeMarriageInfo']
 
 Route::get('/applicantExperience',[WorkController::class,'displayWorkExperience']);
 Route::post('/applicantExperience',[WorkController::class,'storeExperience']);
+
+Route::get('/wpm',[TypingTestController::class,'displayTypingTest']);
+Route::post('/wpm',[TypingTestController::class,'storeTyping']);
+
+Route::get('/IQ',[IQTestController::class,'displayIQTest']);
+Route::post('/IQ',[IQTestController::class,'storeIQ']);
 
 Route::post('/send-email', [MailController::class, 'sendMail']);
