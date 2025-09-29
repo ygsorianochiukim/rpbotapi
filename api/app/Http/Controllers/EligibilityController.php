@@ -12,6 +12,10 @@ class EligibilityController extends Controller
 
         return response()->json($displayEligibility);
     }
+    public function displayInformation($id){
+        $displayList = EligibilityModel::where('applicant_i_information_id','=', $id)->first();
+        return response()->json($displayList);
+    }
 
     public function storeEligibility(Request $request){
         $eligibilityField = $request -> validate([

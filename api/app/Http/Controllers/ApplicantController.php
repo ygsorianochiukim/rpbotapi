@@ -11,6 +11,10 @@ class ApplicantController extends Controller
         $displayList = ApplicantModel::all();
         return response()->json($displayList);
     }
+    public function displayInformation($id){
+        $displayList = ApplicantModel::where('applicant_i_information_id','=', $id)->first();
+        return response()->json($displayList);
+    }
 
     public function newApplicant(Request $request){
         $applicantField = $request -> validate([

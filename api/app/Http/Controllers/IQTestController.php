@@ -13,6 +13,11 @@ class IQTestController extends Controller
         return response()->json($displayIqTest);
     }
 
+    public function displayInformation($id){
+        $displayList = IQTest::where('applicant_i_information_id', $id)->latest()->first();
+        return response()->json($displayList);
+    }
+
     public function storeIQ(Request $request){
         $IqField = $request -> validate([
             'applicant_i_information_id' => 'integer|required',

@@ -13,6 +13,11 @@ class MarriageController extends Controller
         return response()->json($displayMarriage);
     }
 
+    public function displayInformation($id){
+        $displayList = MarriageModel::where('applicant_i_information_id','=', $id)->first();
+        return response()->json($displayList);
+    }
+
     public function storeMarriageInfo(Request $request){
         $MarriageField['is_active'] = '1';
 

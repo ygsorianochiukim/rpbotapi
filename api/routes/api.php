@@ -41,3 +41,13 @@ Route::post('/IQ',[IQTestController::class,'storeIQ']);
 Route::post('/send-email', [MailController::class, 'sendMail']);
 
 Route::post('/conversations', [ConversationController::class, 'store']);
+
+Route::get('/applicant/{id}', [ApplicantController::class, 'displayInformation']);
+Route::get('/applicantEducation/{id}', [ApplicantEducationController::class, 'displayInformation']);
+Route::get('/applicationStatus/{id}', [ApplicationStatusController::class, 'displayInformation']);
+Route::get('/eligibility/{id}', [EligibilityController::class, 'displayInformation']);
+Route::get('/marriage/{id}', [MarriageController::class, 'displayInformation']);
+Route::get('/workExperience/{id}', [WorkController::class, 'displayInformation']);
+Route::get('/wpm/{id}', [TypingTestController::class, 'displayInformation']);
+Route::get('/iq/{id}', [IQTestController::class, 'displayInformation']);
+Route::get('/conversations/{id}', [ConversationController::class, 'displayInformation']);

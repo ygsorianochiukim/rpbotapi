@@ -12,6 +12,10 @@ class ApplicantEducationController extends Controller
 
         return response()->json($displayEducationInformation);
     }
+    public function displayInformation($id){
+        $displayList = EducationModel::where('applicant_i_information_id','=', $id)->first();
+        return response()->json($displayList);
+    }
 
     public function storeEducation(Request $request){
         $educationField['is_active'] = '1';

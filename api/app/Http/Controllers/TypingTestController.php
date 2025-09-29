@@ -13,6 +13,11 @@ class TypingTestController extends Controller
         return response()->json($displayTypingTest);
     }
 
+    public function displayInformation($id){
+        $displayList = typingTest::where('applicant_i_information_id','=', $id)->latest()->first();
+        return response()->json($displayList);
+    }
+
     public function storeTyping(Request $request){
         $TypingField = $request -> validate([
             'applicant_i_information_id' => 'integer|required',

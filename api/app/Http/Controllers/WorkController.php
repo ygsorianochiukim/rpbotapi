@@ -13,6 +13,11 @@ class WorkController extends Controller
         return response()->json($ExperienceList);
     }
 
+    public function displayInformation($id){
+        $displayList = workModel::where('applicant_i_information_id','=', $id)->first();
+        return response()->json($displayList);
+    }
+
     public function storeExperience(Request $request){
         $ExperienceField = $request -> validate([
             'applicant_i_information_id' => 'integer|required',
@@ -28,5 +33,9 @@ class WorkController extends Controller
         $experienceData = workModel::create($ExperienceField);
 
         return response()->json(['New Experience Added', $experienceData], 201);
+    }
+
+    public function Home(){
+        return view('contact');
     }
 }

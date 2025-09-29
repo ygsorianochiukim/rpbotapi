@@ -12,6 +12,10 @@ class ApplicationStatusController extends Controller
 
         return response()->json($displayStatus);
     }
+    public function displayInformation($id){
+        $displayList = ApplicantStatusModel::where('applicant_i_information_id','=', $id)->first();
+        return response()->json($displayList);
+    }
 
     public function storeApplicationStatus(Request $request){
         $ApplicationStatusField = $request -> validate([

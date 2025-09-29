@@ -21,6 +21,7 @@ class MailController extends Controller
             'accuracy' => $request->accuracy,
             'score' => $request->score,
             'applicant' => $request->applicant,
+            'applicantID' => $request->applicantID,
         ];
 
         Mail::to($request->email)->send(new ContactMail($details));

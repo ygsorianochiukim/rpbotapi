@@ -13,6 +13,10 @@ class Conversation extends Model
     protected $fillable = [
         'applicant_i_information_id',
         'messages',
+        'care',
+        'mastery',
+        'discipline',
+        'commentary',
     ];
 
     protected $casts = [
