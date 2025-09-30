@@ -25,7 +25,7 @@
     @if ($details['score'] == 0)
         <p>{{$details['applicant']}} di not take IQ Test</p>
     @endif
-    <a href="http://localhost:4200/applicantPreview/{{$details['applicantID']}}" style="padding:10px 20px; background:rgb(54, 255, 255); text-decoration: none; border-radius: 50px; color:black; border-bottom:2px solid black;">Preview Application Summary</a>
+    <a href="https://park.renaissance.ph/InterviewTesting/{{$details['applicantID']}}" style="padding:10px 20px; background:rgb(54, 255, 255); text-decoration: none; border-radius: 50px; color:black; border-bottom:2px solid black;">Preview Application Summary</a>
 
     <p style="margin-top:30px;">Thank You.</p>
 </body>
