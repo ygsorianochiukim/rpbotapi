@@ -19,5 +19,6 @@ class workModel extends Model
         'position',
         'previouscompensation',
         'is_active',
+        'contribution',
     ];
 }

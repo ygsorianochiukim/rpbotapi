@@ -18,6 +18,15 @@ class ApplicantEducationController extends Controller
     }
 
     public function storeEducation(Request $request){
+        $educationField = $request->validate([
+            'applicant_i_information_id' => 'integer',
+            'college' => 'string|nullable',
+            'course' => 'string|nullable',
+            'yeargraduate' => 'integer|nullable',
+            'graduateschool' => 'integer|nullable',
+            'boardexam' => 'string|nullable',
+        ]);
+
         $educationField['is_active'] = '1';
 
         $educationData = EducationModel::create($educationField);

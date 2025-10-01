@@ -20,12 +20,13 @@ class WorkController extends Controller
 
     public function storeExperience(Request $request){
         $ExperienceField = $request -> validate([
-            'applicant_i_information_id' => 'integer|required',
-            'companyname' => 'string|required',
-            'workduration' => 'string|required',
-            'reasonforleaving' => 'string|required',
-            'position' => 'string|required',
-            'previouscompensation' => 'integer|required',
+            'applicant_i_information_id' => 'integer|nullable',
+            'companyname' => 'string|nullable',
+            'workduration' => 'string|nullable',
+            'reasonforleaving' => 'string|nullable',
+            'position' => 'string|nullable',
+            'previouscompensation' => 'integer|nullable',
+            'contribution' => 'string|nullable',
         ]);
 
         $ExperienceField['is_active'] = '1';

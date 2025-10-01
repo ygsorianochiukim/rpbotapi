@@ -12,14 +12,12 @@ class ApplicantStatusModel extends Model
     protected $keyType = 'int';
     protected $fillable = [
         'applicant_i_information_id',
-        'contribution',
         'pendingapplication',
         'lockincontract',
         'motorcycle',
         'license',
         'technicalSkills',
         'question',
-        'dateAvailability',
         'is_active',
     ];
 }

@@ -18,16 +18,14 @@ class ApplicationStatusController extends Controller
     }
 
     public function storeApplicationStatus(Request $request){
-        $ApplicationStatusField = $request -> validate([
-            'applicant_i_information_id' => 'integer|required',
-            'contribution' => 'string|required',
-            'pendingapplication' => 'string|required',
-            'lockincontract' => 'string|required',
-            'motorcycle' => 'string|required',
-            'license' => 'string|required',
-            'technicalSkills' => 'string|required',
-            'question' => 'string|required',
-            'dateAvailability' => 'date|required',
+        $ApplicationStatusField = $request->validate([
+            'applicant_i_information_id' => 'nullable|integer',
+            'pendingapplication' => 'nullable|string',
+            'lockincontract' => 'nullable|string',
+            'motorcycle' => 'nullable|string',
+            'license' => 'nullable|string',
+            'technicalSkills' => 'nullable|string',
+            'question' => 'nullable|string',
         ]);
 
         $ApplicationStatusField['is_active'] = '1';

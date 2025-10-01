@@ -19,7 +19,7 @@ class ApplicantController extends Controller
     public function newApplicant(Request $request){
         $applicantField = $request -> validate([
             'firstname' => 'string|required',
-            'middlename' => 'string',
+            'middlename' => 'string|nullable',
             'lastname' => 'string|required',
             'email' => 'string|required',
             'civilStatus' => 'string|required',
