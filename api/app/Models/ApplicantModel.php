@@ -26,5 +26,8 @@ class ApplicantModel extends Model
         'zipcode',
         'expectedSalary',
         'is_active',
+        'blood_type',
+        'gender',
+        'nickname',
     ];
 }

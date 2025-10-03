@@ -31,6 +31,9 @@ class ApplicantController extends Controller
             'barangay' => 'string|required',
             'zipcode' => 'integer|required',
             'expectedSalary' => 'integer|required',
+            'blood_type' => 'string|nullable',
+            'gender' => 'string|nullable',
+            'nickname' => 'string|nullable',
         ]);
 
         $applicantField['is_active'] = '1';
