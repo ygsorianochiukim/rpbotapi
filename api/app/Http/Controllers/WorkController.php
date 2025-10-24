@@ -14,7 +14,7 @@ class WorkController extends Controller
     }
 
     public function displayInformation($id){
-        $displayList = workModel::where('applicant_i_information_id','=', $id)->first();
+        $displayList = workModel::where('applicant_i_information_id', $id)->latest('work_i_information_id')->first();
         return response()->json($displayList);
     }
 

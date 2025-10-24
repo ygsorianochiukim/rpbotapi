@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('applicant_IQ_table', function (Blueprint $table) {
+        Schema::create('applicant_iq_table', function (Blueprint $table) {
             $table->id('applicant_iq_id');
             $table->unsignedBigInteger('applicant_i_information_id');
             $table->integer('score')->nullable();

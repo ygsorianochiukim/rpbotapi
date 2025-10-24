@@ -18,6 +18,9 @@ class ApplicantStatusModel extends Model
         'license',
         'technicalSkills',
         'question',
+        'potfolio_link',
+        'filename',
+        'file_content',
         'is_active',
     ];
 }

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/applicant',[ApplicantController::class,'listApplication']);
 Route::post('/applicant',[ApplicantController::class,'newApplicant']);
+Route::post('/applicant/lookup', [ApplicantController::class, 'reApplyFunction']);
 
 Route::get('/applicantEducation',[ApplicantEducationController::class,'displayEducation']);
 Route::post('/applicantEducation',[ApplicantEducationController::class,'storeEducation']);

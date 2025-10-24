@@ -17,8 +17,9 @@ class ApplicationStatusController extends Controller
         return response()->json($displayList);
     }
 
-    public function storeApplicationStatus(Request $request){
-        $ApplicationStatusField = $request->validate([
+    public function storeApplicationStatus(Request $request)
+    {
+        $validated = $request->validate([
             'applicant_i_information_id' => 'nullable|integer',
             'pendingapplication' => 'nullable|string',
             'lockincontract' => 'nullable|string',
@@ -26,11 +27,25 @@ class ApplicationStatusController extends Controller
             'license' => 'nullable|string',
             'technicalSkills' => 'nullable|string',
             'question' => 'nullable|string',
+            'potfolio_link' => 'nullable|url',
+            'filename' => 'nullable|string',
+            'file_content' => 'nullable|string',
         ]);
 
-        $ApplicationStatusField['is_active'] = '1';
+        $validated['is_active'] = 1;
+        if (!empty($validated['file_content'])) {
+            $validated['potfolio_link'] = null;
+        }
+        else if (!empty($validated['potfolio_link'])) {
+            $validated['filename'] = null;
+            $validated['file_content'] = null;
+        }
 
-        $ApplicationData = ApplicantStatusModel::create($ApplicationStatusField);
-        return response()->json(['Store Applicant Status', $ApplicationData],201);
+        $ApplicationData = ApplicantStatusModel::create($validated);
+
+        return response()->json([
+            'message' => 'Applicant status stored successfully',
+            'data' => $ApplicationData,
+        ], 201);
     }
 }

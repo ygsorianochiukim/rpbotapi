@@ -16,6 +16,7 @@ class ApplicantModel extends Model
         'middlename',
         'lastname',
         'email',
+        'desiredPosition',
         'civilStatus',
         'contactnumber',
         'birthdate',

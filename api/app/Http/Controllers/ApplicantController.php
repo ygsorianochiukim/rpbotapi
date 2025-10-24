@@ -16,6 +16,34 @@ class ApplicantController extends Controller
         return response()->json($displayList);
     }
 
+    public function reApplyFunction(Request $request)
+    {
+        $fname  = $request->input('fname');
+        $lname  = $request->input('lname');
+        $bdate  = $request->input('bdate');
+        $number = $request->input('number');
+
+        $lookup = ApplicantModel::where('firstname', $fname)
+            ->where('lastname', $lname)
+            ->where('birthdate', $bdate)
+            ->where('contactnumber', $number)
+            ->orderBy('applicant_i_information_id', 'desc')
+            ->first();
+
+        if ($lookup) {
+            return response()->json([
+                'status' => 'found',
+                'applicant' => $lookup
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'not_found',
+                'message' => 'No applicant matched the provided details.'
+            ]);
+        }
+    }
+
+
     public function newApplicant(Request $request){
         $applicantField = $request -> validate([
             'firstname' => 'string|required',
@@ -34,6 +62,7 @@ class ApplicantController extends Controller
             'blood_type' => 'string|nullable',
             'gender' => 'string|nullable',
             'nickname' => 'string|nullable',
+            'desiredPosition' => 'string|required',
         ]);
 
         $applicantField['is_active'] = '1';
