@@ -14,7 +14,10 @@ class Conversation extends Model
         'applicant_i_information_id',
         'messages',
         'care',
-        'mastery',
+        'ambition',
+        'influence',
+        'skillsDevelopment',
+        'technicalSkills',
         'discipline',
         'commentary',
     ];

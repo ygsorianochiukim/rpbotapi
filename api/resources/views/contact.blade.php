@@ -10,7 +10,10 @@
     <div style="padding:10px;">
         <p style="margin:0px;">Care {{ $details['care'] }}</p>
         <p style="margin:0px;">Discipline {{ $details['discipline'] }}</p>
-        <p style="margin:0px;">Mastery {{ $details['mastery'] }}</p>
+        <p style="margin:0px;">Ambition {{ $details['ambition'] }}</p>
+        <p style="margin:0px;">Influence {{ $details['influence'] }}</p>
+        <p style="margin:0px;">Skills Development {{ $details['skillsDevelopment'] }}</p>
+        <p style="margin:0px;">Technical Skills {{ $details['technicalSkills'] }}</p>
     </div>
 
     @if ($details['wpm'] != 0)

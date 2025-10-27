@@ -17,7 +17,10 @@ class ConversationController extends Controller
             'applicant_i_information_id' => 'required|integer',
             'messages' => 'required|array',
             'care' => 'required|integer',
-            'mastery' => 'required|integer',
+            'ambition' => 'required|integer',
+            'influence' => 'required|integer',
+            'skillsDevelopment' => 'required|integer',
+            'technicalSkills' => 'required|integer',
             'discipline' => 'required|integer',
             'commentary' => 'required|string',
         ]);
@@ -26,7 +29,10 @@ class ConversationController extends Controller
             'applicant_i_information_id' => $request->applicant_i_information_id,
             'messages' => $request->messages,
             'care' => $request->care,
-            'mastery' => $request->mastery,
+            'influence' => $request->influence,
+            'ambition' => $request->ambition,
+            'skillsDevelopment' => $request->skillsDevelopment,
+            'technicalSkills' => $request->technicalSkills,
             'discipline' => $request->discipline,
             'commentary' => $request->commentary,
         ]);
