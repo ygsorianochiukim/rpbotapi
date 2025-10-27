@@ -32,6 +32,7 @@ Route::post('/applicantMarriage',[MarriageController::class,'storeMarriageInfo']
 
 Route::get('/applicantExperience',[WorkController::class,'displayWorkExperience']);
 Route::post('/applicantExperience',[WorkController::class,'storeExperience']);
+Route::put('/applicantExperience/update/{id}', [WorkController::class, 'updateExperience']);
 
 Route::get('/wpm',[TypingTestController::class,'displayTypingTest']);
 Route::post('/wpm',[TypingTestController::class,'storeTyping']);
@@ -49,6 +50,7 @@ Route::get('/applicationStatus/{id}', [ApplicationStatusController::class, 'disp
 Route::get('/eligibility/{id}', [EligibilityController::class, 'displayInformation']);
 Route::get('/marriage/{id}', [MarriageController::class, 'displayInformation']);
 Route::get('/workExperience/{id}', [WorkController::class, 'displayInformation']);
+Route::get('/workExperienceall/{id}', [WorkController::class, 'displayAllInformation']);
 Route::get('/wpm/{id}', [TypingTestController::class, 'displayInformation']);
 Route::get('/iq/{id}', [IQTestController::class, 'displayInformation']);
 Route::get('/conversations/{id}', [ConversationController::class, 'displayInformation']);
