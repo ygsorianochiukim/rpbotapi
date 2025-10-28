@@ -33,4 +33,25 @@ class ApplicantEducationController extends Controller
 
         return response()->json(['Education Added Success', $educationData], 201);
     }
+    public function updateEducation(Request $request, $id)
+    {
+        $educationField = $request->validate([
+            'applicant_i_information_id' => 'integer',
+            'college' => 'string|nullable',
+            'course' => 'string|nullable',
+            'yeargraduate' => 'integer|nullable',
+            'graduateschool' => 'integer|nullable',
+            'boardexam' => 'string|nullable',
+        ]);
+
+        $Education = EducationModel::find($id);
+
+        if (!$Education) {
+            return response()->json(['message' => 'Education not found'], 404);
+        }
+
+        $Education->update($educationField);
+
+        return response()->json(['message' => 'Education updated successfully', 'data' => $Education], 200);
+    }
 }

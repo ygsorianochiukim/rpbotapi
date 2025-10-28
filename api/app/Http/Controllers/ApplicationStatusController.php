@@ -33,13 +33,6 @@ class ApplicationStatusController extends Controller
         ]);
 
         $validated['is_active'] = 1;
-        if (!empty($validated['file_content'])) {
-            $validated['potfolio_link'] = null;
-        }
-        else if (!empty($validated['potfolio_link'])) {
-            $validated['filename'] = null;
-            $validated['file_content'] = null;
-        }
 
         $ApplicationData = ApplicantStatusModel::create($validated);
 
@@ -47,5 +40,30 @@ class ApplicationStatusController extends Controller
             'message' => 'Applicant status stored successfully',
             'data' => $ApplicationData,
         ], 201);
+    }
+    public function updateStatus(Request $request, $id)
+    {
+        $StatusField = $request->validate([
+            'applicant_i_information_id' => 'nullable|integer',
+            'pendingapplication' => 'nullable|string',
+            'lockincontract' => 'nullable|string',
+            'motorcycle' => 'nullable|string',
+            'license' => 'nullable|string',
+            'technicalSkills' => 'nullable|string',
+            'question' => 'nullable|string',
+            'potfolio_link' => 'nullable|url',
+            'filename' => 'nullable|string',
+            'file_content' => 'nullable|string',
+        ]);
+
+        $Status = ApplicantStatusModel::find($id);
+
+        if (!$Status) {
+            return response()->json(['message' => 'Status not found'], 404);
+        }
+
+        $Status->update($StatusField);
+
+        return response()->json(['message' => 'Status updated successfully', 'data' => $Status], 200);
     }
 }

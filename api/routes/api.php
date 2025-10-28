@@ -20,12 +20,15 @@ Route::post('/applicant/lookup', [ApplicantController::class, 'reApplyFunction']
 
 Route::get('/applicantEducation',[ApplicantEducationController::class,'displayEducation']);
 Route::post('/applicantEducation',[ApplicantEducationController::class,'storeEducation']);
+Route::put('/applicantEducation/update/{id}', [ApplicantEducationController::class, 'updateEducation']);
 
 Route::get('/applicantionStatus',[ApplicationStatusController::class,'displayApplicationStatus']);
 Route::post('/applicantionStatus',[ApplicationStatusController::class,'storeApplicationStatus']);
+Route::put('/applicantionStatus/update/{id}', [ApplicationStatusController::class, 'updateStatus']);
 
 Route::get('/applicantEligibility',[EligibilityController::class,'displayEligibility']);
 Route::post('/applicantEligibility',[EligibilityController::class,'storeEligibility']);
+Route::put('/applicantEligibility/update/{id}', [EligibilityController::class, 'updateEligibility']);
 
 Route::get('/applicantMarriage',[MarriageController::class,'displayMarriage']);
 Route::post('/applicantMarriage',[MarriageController::class,'storeMarriageInfo']);

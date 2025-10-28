@@ -28,6 +28,20 @@ class EligibilityController extends Controller
 
         return response()->json(['Store Eligibility Success', $eligibilityData], 201);
     }
+    public function updateEligibility(Request $request, $id)
+    {
+        $EligibilityField = $request->validate([
+            'eligibility' => 'string|required',
+        ]);
 
+        $eligibility = EligibilityModel::find($id);
 
+        if (!$eligibility) {
+            return response()->json(['message' => 'Eligibility not found'], 404);
+        }
+
+        $eligibility->update($EligibilityField);
+
+        return response()->json(['message' => 'Eligibility updated successfully', 'data' => $eligibility], 200);
+    }
 }
