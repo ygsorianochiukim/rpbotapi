@@ -31,4 +31,28 @@ class ApplicantModel extends Model
         'gender',
         'nickname',
     ];
+    public function education()
+    {
+        return $this->hasOne(EducationModel::class, 'applicant_i_information_id');
+    }
+
+    public function eligibility()
+    {
+        return $this->hasOne(EligibilityModel::class, 'applicant_i_information_id');
+    }
+
+    public function marriage()
+    {
+        return $this->hasOne(MarriageModel::class, 'applicant_i_information_id');
+    }
+
+    public function work()
+    {
+        return $this->hasMany(WorkModel::class, 'applicant_i_information_id');
+    }
+
+    public function status()
+    {
+        return $this->hasOne(ApplicantStatusModel::class, 'applicant_i_information_id');
+    }
 }

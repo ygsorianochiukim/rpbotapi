@@ -27,6 +27,13 @@ class ApplicantController extends Controller
             ->where('lastname', $lname)
             ->where('birthdate', $bdate)
             ->where('contactnumber', $number)
+            ->with([
+                'education',
+                'eligibility',
+                'marriage',
+                'work',
+                'status'
+            ])
             ->orderBy('applicant_i_information_id', 'desc')
             ->first();
 
@@ -42,8 +49,6 @@ class ApplicantController extends Controller
             ]);
         }
     }
-
-
     public function newApplicant(Request $request){
         $applicantField = $request -> validate([
             'firstname' => 'string|required',
@@ -64,9 +69,7 @@ class ApplicantController extends Controller
             'nickname' => 'string|nullable',
             'desiredPosition' => 'string|required',
         ]);
-
         $applicantField['is_active'] = '1';
-
         $applicationFieldsInformation = ApplicantModel::create($applicantField);
         return response()->json(['Applicant Record Submitted', $applicationFieldsInformation],201);
     }

@@ -35,4 +35,26 @@ class MarriageController extends Controller
 
         return response()->json(['Marriage Information Added' , $MarriageData], 201);
     }
+    public function updateMarriage(Request $request, $id)
+    {
+        $MarriageField = $request->validate([
+            'applicant_i_information_id' => 'integer',
+            'partnerReligion' => 'string|nullable',
+            'dateMarried' => 'string|nullable',
+            'child' => 'string|nullable',
+            'numberofchildren' => 'integer|nullable',
+            'ageofchildren' => 'string|nullable',
+            'guardianofchildren' => 'string|nullable',
+        ]);
+
+        $Marriage = MarriageModel::find($id);
+
+        if (!$Marriage) {
+            return response()->json(['message' => 'Marriage not found'], 404);
+        }
+
+        $Marriage->update($MarriageField);
+
+        return response()->json(['message' => 'Marriage updated successfully', 'data' => $Marriage], 200);
+    }
 }

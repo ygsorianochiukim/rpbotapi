@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ConversationController extends Controller
 {
     public function displayInformation($id){
-        $displayList = Conversation::where('applicant_i_information_id','=', $id)->first();
+        $displayList = Conversation::where('applicant_i_information_id','=', $id)->orderBy('applicant_i_conversation_id','desc')->first();
         return response()->json($displayList);
     }
     public function store(Request $request)

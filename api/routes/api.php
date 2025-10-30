@@ -25,6 +25,7 @@ Route::put('/applicantEducation/update/{id}', [ApplicantEducationController::cla
 Route::get('/applicantionStatus',[ApplicationStatusController::class,'displayApplicationStatus']);
 Route::post('/applicantionStatus',[ApplicationStatusController::class,'storeApplicationStatus']);
 Route::put('/applicantionStatus/update/{id}', [ApplicationStatusController::class, 'updateStatus']);
+Route::put('/applicantionStatus/updateportfolio/{id}', [ApplicationStatusController::class, 'updatePortfolio']);
 
 Route::get('/applicantEligibility',[EligibilityController::class,'displayEligibility']);
 Route::post('/applicantEligibility',[EligibilityController::class,'storeEligibility']);
@@ -32,6 +33,7 @@ Route::put('/applicantEligibility/update/{id}', [EligibilityController::class, '
 
 Route::get('/applicantMarriage',[MarriageController::class,'displayMarriage']);
 Route::post('/applicantMarriage',[MarriageController::class,'storeMarriageInfo']);
+Route::put('/applicantMarriage/update/{id}', [MarriageController::class, 'updateMarriage']);
 
 Route::get('/applicantExperience',[WorkController::class,'displayWorkExperience']);
 Route::post('/applicantExperience',[WorkController::class,'storeExperience']);

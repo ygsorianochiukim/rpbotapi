@@ -51,6 +51,21 @@ class ApplicationStatusController extends Controller
             'license' => 'nullable|string',
             'technicalSkills' => 'nullable|string',
             'question' => 'nullable|string',
+        ]);
+
+        $Status = ApplicantStatusModel::find($id);
+
+        if (!$Status) {
+            return response()->json(['message' => 'Status not found'], 404);
+        }
+
+        $Status->update($StatusField);
+
+        return response()->json(['message' => 'Status updated successfully', 'data' => $Status], 200);
+    }
+    public function updatePortfolio(Request $request, $id)
+    {
+        $StatusField = $request->validate([
             'potfolio_link' => 'nullable|url',
             'filename' => 'nullable|string',
             'file_content' => 'nullable|string',
