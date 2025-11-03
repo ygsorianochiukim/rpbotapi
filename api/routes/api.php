@@ -5,6 +5,7 @@ use App\Http\Controllers\ApplicantEducationController;
 use App\Http\Controllers\ApplicationStatusController;
 use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\EligibilityController;
+use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\IQTestController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MarriageController;
@@ -59,3 +60,6 @@ Route::get('/workExperienceall/{id}', [WorkController::class, 'displayAllInforma
 Route::get('/wpm/{id}', [TypingTestController::class, 'displayInformation']);
 Route::get('/iq/{id}', [IQTestController::class, 'displayInformation']);
 Route::get('/conversations/{id}', [ConversationController::class, 'displayInformation']);
+
+Route::post('/interview', [InterviewController::class, 'process']);
+Route::post('/interview/handleInterview', [InterviewController::class, 'handleInterview']);
