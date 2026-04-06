@@ -9,6 +9,7 @@ use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\IQTestController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MarriageController;
+use App\Http\Controllers\SMSOTPController;
 use App\Http\Controllers\TypingTestController;
 use App\Http\Controllers\WorkController;
 use App\Models\Conversation;
@@ -63,3 +64,7 @@ Route::get('/conversations/{id}', [ConversationController::class, 'displayInform
 
 Route::post('/interview', [InterviewController::class, 'process']);
 Route::post('/interview/handleInterview', [InterviewController::class, 'handleInterview']);
+
+Route::post('/sms/send-sms-otp', [SMSOTPController::class, 'sendSMSOTP']);
+Route::post('/sms/send-sms-confirmation', [SMSOTPController::class, 'sendSMSConfirmation']);
+Route::post('/sms/sendSMSConfirmationEvaluation', [SMSOTPController::class, 'sendSMSConfirmationEvaluation']);
