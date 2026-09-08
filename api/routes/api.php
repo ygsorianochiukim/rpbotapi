@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\ApplicantEducationController;
 use App\Http\Controllers\ApplicationStatusController;
+use App\Http\Controllers\ApprovalsInterviewController;
 use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\EligibilityController;
 use App\Http\Controllers\InterviewController;
@@ -68,3 +69,10 @@ Route::post('/interview/handleInterview', [InterviewController::class, 'handleIn
 Route::post('/sms/send-sms-otp', [SMSOTPController::class, 'sendSMSOTP']);
 Route::post('/sms/send-sms-confirmation', [SMSOTPController::class, 'sendSMSConfirmation']);
 Route::post('/sms/sendSMSConfirmationEvaluation', [SMSOTPController::class, 'sendSMSConfirmationEvaluation']);
+
+// The interview happens on the Approvals desk. After the exams the front end
+// asks for the applicant's link (open); Approvals writes the verdict back
+// (verdict, keyed by X-RPV-Key); the front end can ask where it stands (status).
+Route::post('/interview/open', [ApprovalsInterviewController::class, 'open']);
+Route::get('/interview/status/{id}', [ApprovalsInterviewController::class, 'status']);
+Route::put('/interview/verdict/{id}', [ApprovalsInterviewController::class, 'verdict']);
